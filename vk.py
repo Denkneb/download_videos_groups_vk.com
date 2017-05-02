@@ -38,15 +38,15 @@ def get_file_youtube(url):
 def main():
     # The required token of your application vk.Developers https://vk.com/dev/first_guide
     # Example
-    # https://oauth.vk.com/authorize?client_id=6008211&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=video,photos&response_type=token&v=5.52
-    access_token = 'd88d5f1ce6fbf39938baa21659d41ff83f235853afa48f1dac0aeb561d778237e500f2ad591f59d5f22cb'
+    # https://oauth.vk.com/authorize?client_id=...&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=video,photos&response_type=token&v=5.52
+    access_token = '...'
     # id group or user. If you have screen_name, then you need get id, more https://vk.com/dev/groups.getById
     owner_id = 43948962
 
     r = requests.get('https://api.vk.com/method/video.get', params={'owner_id': -owner_id,
                                                                     'access_token': access_token, 'album_id': -2})
     # writing to a JSON file
-    write_json(r.json())
+    # write_json(r.json())
 
     videos = r.json()['response'][1:]
     for video in videos:
